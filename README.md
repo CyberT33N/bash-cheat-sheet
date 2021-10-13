@@ -865,6 +865,10 @@ printf "\n Links of the matched s3 files: $resultNames"
 
 ## Replace text and create new variable
 ```bash
+# method #1 - Using tr and save stream to file
+tr "|" "," < '/home/a.csv' > '/home/a-edited.csv'
+
+# method #2
 PROJECTNAME=$(echo ${BASH_REMATCH[0]} | sed 's/oldtext/newtext/g')
 
 # use regex
