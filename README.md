@@ -901,18 +901,32 @@ echo 's'$s
 
 ## sed
 
+
+<br><br>
+
+#### Remove white space with character class
+```bash
+sed -r -e "/'.*\|.*'/s/\|/-/g" < $DUMB >> 'temp.csv'
+```
 <br><br>
 
 #### If you want to use the matched group from your sed command you must use extended regex with the r flag
-<br><br>
 ```bash
-sed -r -e "/'.*\|.*'/s/\|/-/g" < $DUMB >> 'temp.csv'
+sed -E 's/[[:space:]]+/,/g' orig.txt > modified.txt
+
+# The character class [:space:] will match all whitespace (spaces, tabs, etc.). If you just want to replace a single character, eg. just space, use that only.
+# EDIT: Actually [:space:] includes carriage return, so this may not do what you want. The following will replace tabs and spaces.
+
+sed -E 's/[[:blank:]]+/,/g' orig.txt > modified.txt
+
+# as will
+
+sed 's/[\t ]+/,/g' orig.txt > modified.txt
 ```
 
 <br><br>
 
 #### When you work with big data never save the result in a variable and then do other operations with it. Save the current work data to a file and then read it again
-<br><br>
 ```bash
 sed -r -e 's/.*/\1/g')
 ```
@@ -920,7 +934,6 @@ sed -r -e 's/.*/\1/g')
 <br><br>
 
 #### work with variable and save to file
-<br><br>
 ```bash
 sed -r -e "/'.*\|.*'/s/\|/-/g" $DUMB > 'temp.csv'
 ```
@@ -929,10 +942,17 @@ sed -r -e "/'.*\|.*'/s/\|/-/g" $DUMB > 'temp.csv'
 <br><br>
 
 #### work with filee and save to file
-<br><br>
 ```bash
 sed -r -e "/'.*\|.*'/s/\|/-/g" < './file.csv' >> 'temp.csv'
 ```
+
+
+
+
+
+
+
+
 
 
 
