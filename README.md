@@ -874,6 +874,9 @@ PROJECTNAME=$(echo ${BASH_REMATCH[0]} | sed 's/oldtext/newtext/g')
 # use regex
 PROJECTNAME=$(echo ${BASH_REMATCH[0]} | sed -E 's/^coolregex$/newtext/g')
 
+# extend matched stuff with something
+PROJECTNAME=$(echo ${BASH_REMATCH[0]} | sed -E 's/^coolregex$/\1 added text here/g')
+
 # use regex and variable - We can use double quotes to be able to use variable
 REGEXHERE="^coolregex$"
 PROJECTNAME=$(echo ${BASH_REMATCH[0]} | sed -E "s/$REGEXHERE/newtext/g")
