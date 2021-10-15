@@ -895,6 +895,41 @@ echo 's'$s
 
 
 
+## grep
+
+
+<br><br>
+
+#### Match specific text in while and show aswell 4 lines before
+```bash
+grep -B 4 '40413531' /home/username/export_online_b-edited.tsv
+```
+<br><br>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<br><br>
+
+
+<br><br>
+
+
+
 # Replace
 
 <br><br>
