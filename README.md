@@ -900,11 +900,45 @@ echo 's'$s
 <br><br>
 
 ## sed
-- If you want to use the matched group from your sed command you must use extended regex with the r flag
+
+<br><br>
+
+#### If you want to use the matched group from your sed command you must use extended regex with the r flag
+<br><br>
+```bash
+sed -r -e "/'.*\|.*'/s/\|/-/g" < $DUMB >> 'temp.csv'
+```
+
+<br><br>
+
+#### When you work with big data never save the result in a variable and then do other operations with it. Save the current work data to a file and then read it again
 <br><br>
 ```bash
 sed -r -e 's/.*/\1/g')
 ```
+
+<br><br>
+
+#### work with variable and save to file
+<br><br>
+```bash
+sed -r -e "/'.*\|.*'/s/\|/-/g" $DUMB > 'temp.csv'
+```
+
+
+<br><br>
+
+#### work with filee and save to file
+<br><br>
+```bash
+sed -r -e "/'.*\|.*'/s/\|/-/g" < './file.csv' >> 'temp.csv'
+```
+
+
+
+
+<br><br>
+<br><br>
 
 
 ## Replace text and create new variable
