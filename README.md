@@ -897,6 +897,16 @@ echo 's'$s
 
 # Replace
 
+<br><br>
+
+## sed
+- If you want to use the matched group from your sed command you must use extended regex with the r flag
+<br><br>
+```bash
+sed -r -e 's/.*/\1/g')
+```
+
+
 ## Replace text and create new variable
 ```bash
 # method #1 - Using tr and save stream to file
@@ -923,26 +933,22 @@ PROJECTNAME=$(echo ${BASH_REMATCH[0]} | sed 's/ab/~~/g; s/bc/ab/g; s/~~/bc/g')
 string="'bla6666666666666666666666 bla bla|bla|bla'"
 s=`echo $string | sed -E "s/'.*[|].*'/&/g"` # You can use \1 only when you make group matching in regex. e.q. ('.*[|].*')
 echo $s
-
-
-
-# match string and then replace with another statment
-#!/bin/sh
-text="'fqwfqwfdqwf 33 wfefewfwfebla6666666666666666666666 bla bla|bla|bla'|fwefwefwefwef3"
-string="'fqwfqwfdqwf 33 wfefewfwfebla6666666666666666666666 bla bla|bla|bla'"
-s=`echo $text | grep -Eo "'.*\|.*'"`
-echo 's'$s
-
-final=`echo $s | sed -r -E "s/\|/-/g"`
-echo 'final:'$final
-
-result=`echo $text | sed "s/$string/$final/g"`
-echo 'result:'$result
 ```
 
 
+<br><br>
 
 
+## match string and then replace with another statment
+```bash
+#!/bin/sh
+text="'fqwfqwfdqwf 33 wfefewfwfebla6666666666666666666666 bla bla|bla|bla'|fwefwefwefwef3"
+string="'fqwfqwfdqwf 33 wfefewfwfebla6666666666666666666666 bla bla|bla|bla'"
+
+# the first statement is the
+result=`echo $text | sed -r -e "/'.*\|.*'/s/\|/-/g"`
+echo 'result:'$result
+```
 
 
 
