@@ -886,14 +886,13 @@ PROJECTNAME=$(echo ${BASH_REMATCH[0]} | sed 's/ab/~~/g; s/bc/ab/g; s/~~/bc/g')
 
 # save the matched text to variable
 string="'bla6666666666666666666666 bla bla|bla|bla'"
-s=`echo $string | sed -E "s/'.*[|].*'/&/g"`
+s=`echo $string | sed -E "s/'.*[|].*'/&/g"` # You can use \1 only when you make group matching in regex. e.q. ('.*[|].*')
 echo $s
 
+## You can us
+
 # match string and then replace with another statment
-text="'fqwfqwfdqwf 33 wfefewfwfebla6666666666666666666666 bla bla|bla|bla'|fwefwefwefwef"
-string="'bla6666666666666666666666 bla bla|bla|bla'"
-s=`echo $text | sed -E "s/'.*[|].*'/&/g; s/\|/-/g"`
-echo $s
+
 
 ```
 
