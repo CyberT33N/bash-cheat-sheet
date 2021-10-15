@@ -861,6 +861,32 @@ printf "\n Links of the matched s3 files: $resultNames"
  _____________________________________________________
 <br><br>
 
+
+
+# match
+
+<br><br>
+
+
+## match something with regex and return the matched group
+```bash
+text="'fqwfqwfdqwf 33 wfefewfwfebla6666666666666666666666 bla bla|bla|bla'|fwefwefwefwef3"
+string="'bla6666666666666666666666 bla bla|bla|bla'"
+s=`echo $text | grep -Eo "'.*\|.*'"`
+echo 's'$s
+```
+
+
+
+
+
+
+<br><br>
+<br><br>
+
+
+
+
 # Replace
 
 ## Replace text and create new variable
