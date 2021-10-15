@@ -883,6 +883,11 @@ PROJECTNAME=$(echo ${BASH_REMATCH[0]} | sed -E "s/$REGEXHERE/newtext/g")
 
 # Use multiple statements
 PROJECTNAME=$(echo ${BASH_REMATCH[0]} | sed 's/ab/~~/g; s/bc/ab/g; s/~~/bc/g')
+
+# save the matched text to variable
+string="'bla6666666666666666666666 bla bla|bla|bla'"
+s=`echo $string | sed -E "s/'.*[|].*'/&/g"`
+echo $s
 ```
 
 
