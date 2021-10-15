@@ -468,6 +468,14 @@ do
 done
 ```
 
+<br><br>
+
+## read file into variable
+```bash
+#!/bin/bash
+value=$(<config.txt)
+echo "$value"
+```
 
 
 
