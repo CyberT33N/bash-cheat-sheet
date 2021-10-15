@@ -888,6 +888,13 @@ PROJECTNAME=$(echo ${BASH_REMATCH[0]} | sed 's/ab/~~/g; s/bc/ab/g; s/~~/bc/g')
 string="'bla6666666666666666666666 bla bla|bla|bla'"
 s=`echo $string | sed -E "s/'.*[|].*'/&/g"`
 echo $s
+
+# match string and then replace with another statment
+text="'fqwfqwfdqwf 33 wfefewfwfebla6666666666666666666666 bla bla|bla|bla'|fwefwefwefwef"
+string="'bla6666666666666666666666 bla bla|bla|bla'"
+s=`echo $text | sed -E "s/'.*[|].*'/&/g; s/\|/-/g"`
+echo $s
+
 ```
 
 
