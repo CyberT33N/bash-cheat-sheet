@@ -910,16 +910,26 @@ PROJECTNAME=$(echo ${BASH_REMATCH[0]} | sed -E "s/$REGEXHERE/newtext/g")
 # Use multiple statements
 PROJECTNAME=$(echo ${BASH_REMATCH[0]} | sed 's/ab/~~/g; s/bc/ab/g; s/~~/bc/g')
 
+
 # save the matched text to variable
 string="'bla6666666666666666666666 bla bla|bla|bla'"
 s=`echo $string | sed -E "s/'.*[|].*'/&/g"` # You can use \1 only when you make group matching in regex. e.q. ('.*[|].*')
 echo $s
 
-## You can us
+
 
 # match string and then replace with another statment
+#!/bin/sh
+text="'fqwfqwfdqwf 33 wfefewfwfebla6666666666666666666666 bla bla|bla|bla'|fwefwefwefwef3"
+string="'fqwfqwfdqwf 33 wfefewfwfebla6666666666666666666666 bla bla|bla|bla'"
+s=`echo $text | grep -Eo "'.*\|.*'"`
+echo 's'$s
 
+final=`echo $s | sed -r -E "s/\|/-/g"`
+echo 'final:'$final
 
+result=`echo $text | sed "s/$string/$final/g"`
+echo 'result:'$result
 ```
 
 
