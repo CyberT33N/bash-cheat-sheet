@@ -1431,12 +1431,24 @@ fi
 <br><br>
 
 ## check if file exist (-f)
+
 ``` bash
-# method 1
+# method 1 (-f)
 if [ -f "sample.txt" ]
   then printf "\n sample.txt already exist..\n"
   else printf "\n sample.txt does not exist..\n"
 fi
+
+
+# method 1 (-s) | You should use -s when you work with variables - FILE exists and has a size greater than zero
+if [ -s "$file" ]
+  then printf "\n sample.txt already exist..\n"
+  else printf "\n sample.txt does not exist..\n"
+fi
+
+
+
+
 
 # method 2
 [ -f $PROJECTNAME/.sample.txt ] && rm -f $PROJECTNAME/.sample.txt;
