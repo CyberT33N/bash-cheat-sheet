@@ -943,6 +943,25 @@ grep -B 4 '40413531' /home/username/export_online_b-edited.tsv
 ```bash
 sed -r -e "/'.*\|.*'/s/\|/-/g" < $DUMB >> 'temp.csv'
 ```
+
+
+
+
+
+<br><br>
+
+#### Remove last character from string
+```bash
+remove last character
+${VARIABLEHERE%?}
+
+remove the last 2 characters
+${VARIABLEHERE%??}
+```
+
+
+
+
 <br><br>
 
 #### If you want to use the matched group from your sed command you must use extended regex with the r flag
