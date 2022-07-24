@@ -1404,6 +1404,17 @@ fi
 
 
 
+<br><br>
+
+## check if variable exists
+``` bash
+if [[ "$phone_missing" ]]; then
+    echo "phone_missing does exists"
+fi
+```
+
+
+
 
 
 <br><br>
