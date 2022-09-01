@@ -1259,7 +1259,28 @@ echo "font for loop was done.."
 
 ## Select files from folder recursive
 ```bash
-#!/bin/sh
+# method #1
+REGEX='"log":"([^"]+)"'
+
+for jsonfile in $(find /logs -name '*_0'); do
+     resultNames=$(cat $jsonfile | grep -ohE $REGEX)
+     printf "\n Links of the matched s3 files: $resultNames"
+done;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+# method #2
 PROJECTPATH=~/Projects/gitlab/example
 
 recursiverm() {
@@ -1287,7 +1308,7 @@ recursiverm() {
 
 
 
-# method #2
+# method #3
 : '
 -r or -R is recursive,
 -n is line number, and
