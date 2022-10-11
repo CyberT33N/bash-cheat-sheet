@@ -1088,7 +1088,10 @@ echo 'result:'$result
 
 ## Open script in new window
 ```bash
-# method 1 (you can basicly use any terminal emulator for this)
+# method 1 (https://askubuntu.com/questions/484993/run-command-on-anothernew-terminal-window)
+gnome-terminal -- sh -c "any code here"
+
+# method 2 (you can basicly use any terminal emulator for this)
 gnome-terminal -- yourscript.sh
 ```
 
