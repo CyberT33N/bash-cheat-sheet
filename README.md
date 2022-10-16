@@ -216,6 +216,81 @@ isDirectory=$(sudo bash -c "[[ -d $SourcePath ]] && echo true")
 
 
 
+<br><br>
+ _____________________________________________________
+ _____________________________________________________
+<br><br>
+
+
+# arguments
+
+## start script with arguments
+```bash
+./test.sh red
+```
+
+test.sh:
+```
+#!/bin/bash
+
+if [ $# -eq 0 ]
+  then
+    echo "No arguments supplied"
+fi
+
+if [ "$1" == "red" ]; then
+    createProject "red"
+elif [ "$1" == "blue" ]; then
+    createProject "blue"
+elif [ "$1" == "local" ]; then
+    createProject "local"
+fi
+```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 <br><br>
@@ -1634,3 +1709,46 @@ rand=$[$RANDOM % ${#introAR[@]}]
 intropath=${introAR[$rand]}
 introname=$(basename -- "$intropath")
 ```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
