@@ -250,7 +250,101 @@ fi
 
 
 
+<br><br>
+<br><br>
 
+## Use flags
+```bash
+#!/bin/bash
+
+# filename: commandLine.sh
+# author: @theBuzzyCoder
+
+showHelp() {
+# `cat << EOF` This means that cat should stop reading when EOF is detected
+cat << EOF  
+Usage: ./installer -v <espo-version> [-hrV]
+Install Pre-requisites for EspoCRM with docker in Development mode
+
+-h, -help,          --help                  Display help
+
+-v, -espo-version,  --espo-version          Set and Download specific version of EspoCRM
+
+-r, -rebuild,       --rebuild               Rebuild php vendor directory using composer and compiled css using grunt
+
+-V, -verbose,       --verbose               Run script in verbose mode. Will print out each step of execution.
+
+EOF
+# EOF is found above and hence cat command stops reading. This is equivalent to echo but much neater when printing out.
+}
+
+
+export version=0
+export verbose=0
+export rebuilt=0
+
+# $@ is all command line parameters passed to the script.
+# -o is for short options like -v
+# -l is for long options with double dash like --version
+# the comma separates different long options
+# -a is for long options with single dash like -version
+options=$(getopt -l "help,version:,verbose,rebuild,dryrun" -o "hv:Vrd" -a -- "$@")
+
+# set --:
+# If no arguments follow this option, then the positional parameters are unset. Otherwise, the positional parameters 
+# are set to the arguments, even if some of them begin with a ‘-’.
+eval set -- "$options"
+
+while true
+do
+case "$1" in
+-h|--help) 
+    showHelp
+    exit 0
+    ;;
+-v|--version) 
+    shift
+    export version="$1"
+    ;;
+-V|--verbose)
+    export verbose=1
+    set -xv  # Set xtrace and verbose mode.
+    ;;
+-r|--rebuild)
+    export rebuild=1
+    ;;
+--)
+    shift
+    break;;
+esac
+shift
+done
+```
+
+```bash
+# With short options grouped together and long option
+# With double dash '--version'
+
+bash commandLine.sh --version=1.0 -rV
+# With short options grouped together and long option
+# With single dash '-version'
+
+bash commandLine.sh -version=1.0 -rV
+
+# OR with short option that takes value, value separated by whitespace
+# by key
+
+bash commandLine.sh -v 1.0 -rV
+
+# OR with short option that takes value, value without whitespace
+# separation from key.
+
+bash commandLine.sh -v1.0 -rV
+
+# OR Separating individual short options
+
+bash commandLine.sh -v1.0 -r -V
+```
 
 
 
