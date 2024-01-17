@@ -1373,6 +1373,28 @@ cd "$EXPORT_PATH"
 
 # Iterate
 
+## for loop with path
+```bash
+# example 1
+cd test/data
+
+for file in *
+do
+   # do whatever on $i
+done
+
+
+
+
+# example 2
+for file in test/data/*
+do
+   # do whatever on $i
+done
+```
+
+
+
 ## for loop array
 ```bash
 for i in "${arrayName[@]}"
