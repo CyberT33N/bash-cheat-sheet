@@ -97,6 +97,25 @@ printf "\n Amount of files where we found s3 links: $AmountOfMatches"
 
 
 
+<br><br>
+ _____________________________________________________
+ _____________________________________________________
+<br><br>
+
+# log
+
+## echo
+
+### new line
+```shell
+echo -e "\nStarting port-forward for $target_context:" 🚀
+```
+
+
+
+
+
+
 
 
 
