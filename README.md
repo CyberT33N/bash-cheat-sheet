@@ -1043,6 +1043,24 @@ cd "$(dirname "$0")"; printf "\nCurrent working directory:"; pwd
 
 <br><br>
 
+
+
+## check if variable start with string
+```bash
+TEST="helm template 123"
+echo $TEST
+
+if [[ $TEST =~ ^"helm template" ]]; then
+     echo "Trigger mongodb-data backup"
+fi
+```
+
+
+<br><br>
+<br><br>
+
+
+
 ## use in condition
 ```bash
 BRANCH_REGEX="^(develop$|release//*)"
