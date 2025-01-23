@@ -912,6 +912,12 @@ mkdir /anyfolder
 mkdir -p /anyfolder/path/here
 ```
 
+<br><br>
+
+#### create multiple folder
+```bash
+mkdir -p {dev,test,prod}/{backend,frontend}
+```
 
 
 
@@ -994,6 +1000,27 @@ sample text..
 
 
 
+<br><br>
+ _____________________________________________________
+ _____________________________________________________
+<br><br>
+
+# tail
+
+## real-time monitoring files
+Using the tail -f command, you can follow the changes in the log file as they happen. This allows you to see new lines appended to the file without needing to re-run the command.
+```shell
+tail -f error_file.log
+```
+
+If you want to follow a log file in real-time but only care about specific entries, you can combine tail -f with grep. For example:
+```shell
+tail -f error_file.log | grep "ERROR"
+```
+
+
+
+
 
 
 
@@ -1003,10 +1030,42 @@ sample text..
  _____________________________________________________
 <br><br>
 
+# touch
+
+## Create multiple files number increasing
+```shell
+touch test{1..10}.txt
+```
+
+
+
+
+
+
+
+
+
+
+
+<br><br>
+ _____________________________________________________
+ _____________________________________________________
+<br><br>
+
+
+## cd
 
 ## cd current directory
 ```bash
 cd "$(dirname "$0")"; printf "\nCurrent working directory:"; pwd
+```
+
+<br><br>
+
+
+## cd last directory
+```bash
+cd -
 ```
 
 
